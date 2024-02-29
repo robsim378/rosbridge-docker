@@ -29,5 +29,9 @@ Limitations:
 	The message type must be available in an apt repository for ROS 1. This limitation could be removed in the future by modifying the Dockerfile to build ROS 1 from source, but this was developed to use ackermann_msgs, which are not part of ROS by default but are available for installation via apt, so we did not bother with the extra headache.
 
 
+
+Known issues:
+	The git repository currently holds the entirety of ROS 2's source code. This is not ideal for obvious reasons, so replacing that with a 'git clone' command in the Dockerfile would be a major improvement. When doing this, commands must also be added to clone ackermann_msgs to ros2_foxy/src/ros2 and checkout the ros2 branch.
+
 Resources:
 	https://github.com/ros2/ros1_bridge
