@@ -26,9 +26,6 @@ RUN apt-get install --no-install-recommends -y libcunit1-dev python3-vcstool git
 # Add the message packages to ROS 1 using apt
 RUN apt-get install --no-install-recommends -y ros-noetic-ackermann-msgs
 
-# # Copy the ROS 2 source code into the container
-# COPY ./ros2_foxy ros2_foxy
-
 # Clone the ROS 2 source code into the container
 RUN mkdir -p /ros2_foxy/src; cd /ros2_foxy; vcs import --input https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos src
 
