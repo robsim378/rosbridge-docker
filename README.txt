@@ -1,7 +1,8 @@
 This is a Docker container that builds ROS 2 and the ROS 1 bridge from source, allowing new message types to be added to the ROS 1 bridge. 
 
-Using the ROS 1 bridge.
 ----------------------------------------------
+Using the ROS 1 bridge
+
 Instructions:
 	1. From the rosbridge_docker directory, run the command 'source project_aliases'. This file contains a few aliases that are useful for building and using this Docker container.
 	2. Run the command 'bridge_run' to launch the Docker container.
@@ -15,8 +16,9 @@ Instructions:
 Upon completing these steps, the ROS 1 bridge should be running.
 
 
-Adding a new message type to the ROS 1 bridge.
 ----------------------------------------------
+Adding a new message type to the ROS 1 bridge
+
 Instructions:
 	1. Find the ROS 1 apt package for the message type you wish to add to the bridge and add it on line 27 of the Dockerfile (the line that installs ros-noetic-ackermann-msgs)
 	2. Find the source repository for the ROS 2 message type you wish to add to the bridge, and clone it into ros2_foxy/src/ros2. 
@@ -29,9 +31,6 @@ Limitations:
 	The message type must be available in an apt repository for ROS 1. This limitation could be removed in the future by modifying the Dockerfile to build ROS 1 from source, but this was developed to use ackermann_msgs, which are not part of ROS by default but are available for installation via apt, so we did not bother with the extra headache.
 
 
-
-Known issues:
-	The git repository currently holds the entirety of ROS 2's source code. This is not ideal for obvious reasons, so replacing that with a 'git clone' command in the Dockerfile would be a major improvement. When doing this, commands must also be added to clone ackermann_msgs to ros2_foxy/src/ros2 and checkout the ros2 branch.
-
+----------------------------------------------
 Resources:
 	https://github.com/ros2/ros1_bridge
