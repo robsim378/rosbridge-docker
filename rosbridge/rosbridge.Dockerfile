@@ -29,7 +29,7 @@ RUN apt-get install --no-install-recommends -y ros-noetic-ackermann-msgs
 # Clone the ROS 2 source code into the container
 RUN mkdir -p /ros2_foxy/src; cd /ros2_foxy; vcs import --input https://raw.githubusercontent.com/ros2/ros2/foxy/ros2.repos src
 
-# Clone the ackermann_msgs source code into the ROS 2 source code, meaning it will be built into ROS 2
+# Clone the ackermann_msgs source code into the ROS 2 source code, meaning it will be built into ROS 2. The same repo is used for both ROS 1 and 2, so to get the ROS 2 source code, we must checkout the ros2 branch.
 RUN cd /ros2_foxy/src/ros2/; git clone https://github.com/ros-drivers/ackermann_msgs.git; cd ackermann_msgs; git checkout ros2;
 
 # Add ROS 2 dependencies from rosdep
